@@ -10,7 +10,7 @@ version 1.0.1
 
 Firebase Codable can be install only with spm. Add this line to your Package.swift file
 ```swift
- .package(name: "Firebase", url: "https://github.com/firebase/firebase-ios-sdk.git", .upToNextMajor(from: "8.5.0"),
+    .package(url: "https://github.com/popina/FirCodable.git", .upToNextMajor(from: "1.0.1")),
 ```
 
 ## How to use 
