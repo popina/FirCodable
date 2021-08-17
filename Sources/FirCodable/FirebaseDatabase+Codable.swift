@@ -39,4 +39,33 @@ public extension DatabaseReference {
             }
         }
     }
+    
+    func updateChildValues<C: Codable>(_ value: C, completion: @escaping(_ error: Error?, _ ref: DatabaseReference?) -> Void) {
+        do {
+            
+            let dict = try DataSnapshotEncoder().encode(value)
+            
+            self.updateChildValues(dict) { error, ref in
+                completion(error, ref)
+            }
+        }
+        catch {
+            completion(error, nil)
+        }
+    }
+    
+    func setValue<C: Codable>(_ value: C, completion: @escaping(_ error: Error?, _ ref: DatabaseReference?) -> Void) {
+        do {
+            let dict = try DataSnapshotEncoder().encode(value)
+            
+            self.setValue(dict) { error, ref in
+                completion(error, ref)
+            }
+        }
+        catch {
+            completion(error, nil)
+        }
+    }
+    
+    
 }
