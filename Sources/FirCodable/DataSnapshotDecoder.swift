@@ -9,6 +9,10 @@ import Foundation
 
 public class DataSnapshotDecoder {
     
+    public init() {
+        
+    }
+    
     public func decode<C>(_ encoder: C.Type, value: [String: Any]) throws -> C where C : Decodable {
         do {
             let data = try self.data(value)
